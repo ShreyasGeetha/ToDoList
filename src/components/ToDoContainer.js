@@ -1,5 +1,4 @@
-import React,{useState,useEffect} from 'react'
-import {addToDoList, deleteToDoList, completedList, sortOnClick} from '../redux'
+import React from 'react'
 import './todoContainer.css'
 import DisplayInputContainer from './DisplayInputContainer';
 import DisplayCompletedTodo from './DisplayCompletedTodo';
@@ -11,7 +10,6 @@ function ToDoContainer(props) {
 
     return (
         <div className="main-content">
-            <ShowNotification></ShowNotification>
             <DisplayInputContainer></DisplayInputContainer>
             <DisplayCompletedTodo></DisplayCompletedTodo>
         </div>

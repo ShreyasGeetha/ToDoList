@@ -1,8 +1,4 @@
 import React,{useEffect, useState} from 'react'
-import tick from '../images/tick.png';
-import error from '../images/error.png';
-import Success from '../images/Success.png';
-import warning from '../images/warning.png';
 import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrashAlt, faCheckCircle, faClipboardCheck } from "@fortawesome/free-solid-svg-icons"
@@ -10,12 +6,12 @@ import { faTrashAlt, faCheckCircle, faClipboardCheck } from "@fortawesome/free-s
 
 function ShowNotification() {
 
-const notification = useSelector(state => state.notification)
+  const notification = useSelector(state => state.notification)
+  const showNotification = useSelector(state => state.showNotification)
 
   const [notificationClassName, setNotificationClassName] = useState('hide')
   const [message, setMessage] = useState('Default Messaging')
   const [alertType, setAlertType] = useState('alertWarning')
-  const [warningImage, setWarningImage] = useState('warningImage')
   const [warningMessage, setWarningMessage] = useState('warningMessage')
   const [images, setImage] = useState(faClipboardCheck)
   const [icons, setIcons] = useState('add')
@@ -27,14 +23,12 @@ const notification = useSelector(state => state.notification)
   }
 
   const doesShow = () => {
-    if (notification.length > 0) {
-     
+   
       notification.map(getValue => {
         switch (getValue.value) {
           case 'add':
             setNotificationClassName('show')
             setAlertType('alertWarning')
-            setWarningImage('warningImage')
             setWarningMessage('warningMessage')
             setImage(faClipboardCheck)
             setIcons('Add')
@@ -45,7 +39,6 @@ const notification = useSelector(state => state.notification)
           case 'completed':
             setNotificationClassName('show')
             setAlertType('alertCompleted')
-            setWarningImage('completedImage')
             setWarningMessage('completedMessage')
             setImage(faCheckCircle)
             setIcons('Completed')
@@ -56,7 +49,6 @@ const notification = useSelector(state => state.notification)
           case 'deleted':
             setNotificationClassName('show')
             setAlertType('alertDeleted')
-            setWarningImage('deletedImage')
             setWarningMessage('deletedMessage')
             setImage(faTrashAlt)
             setIcons('Deleted')
@@ -67,10 +59,7 @@ const notification = useSelector(state => state.notification)
             return;
           default: return;
         }
-      })
-    } else {
-    document.getElementsByClassName('hide')[0].style.display = 'hidden';
-    }
+      }) 
   }
 
   useEffect(() => {
@@ -81,12 +70,12 @@ const notification = useSelector(state => state.notification)
   }, [notification])
   
   return (
-    <div>
+    <div>{showNotification &&
       <div className={`${alertType} ${notificationClassName}`}>
-        {console.log('the icon is ',images)}
         <div className={`icon${icons}`}><FontAwesomeIcon icon={images} className={icons} /></div>
         <div className={warningMessage}>{message}</div>      
       </div>
+    }      
     </div>
   )
 }

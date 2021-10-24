@@ -10,7 +10,8 @@ const initialState = {
     ],
     notification: [
 
-    ]
+    ],
+    showNotification: false
 }
 
 const sendNotification = (list,msg) =>{
@@ -38,9 +39,9 @@ const todoListReducer = (state = initialState, action) =>{
             var obj = {
                 ...state,
                 todoList: [...state.todoList, action.payload],
-                notification: [{value:'add', priority:temp.priority, msg: temp.listName, date: temp.date}]
+                notification: [{ value: 'add', priority: temp.priority, msg: temp.listName, date: temp.date }],
+                showNotification: true
             }
-            sendNotification(action.payload,'TASK ADDED')
             return obj            
 
         case EDIT_TODOLIST:  
@@ -56,7 +57,8 @@ const todoListReducer = (state = initialState, action) =>{
             var obj = {
             ...state,
             todoList: state.todoList.filter(arr => arr.id !== action.payload),
-            notification: temp
+            notification: temp,
+            showNotification: true
             }            
             return obj
 
@@ -68,9 +70,9 @@ const todoListReducer = (state = initialState, action) =>{
                 ...state,   
                 completedToDoList: [...state.completedToDoList, filteredCompletedList[0]],
                 todoList: state.todoList.filter(arr => arr.id !== action.payload),
-                notification: temp
+                notification: temp,
+                showNotification: true
             }
-            sendNotification(filteredCompletedList[0],'TASK COMPLETED!') 
             return obj
 
         case SORT_TODOLIST:  

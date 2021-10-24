@@ -2,8 +2,7 @@ import React,{useState,useEffect}  from 'react'
 import DisplayTodoContainer from './DisplayTodoContainer';
 import Header from './Header'
 import {useDispatch} from 'react-redux'
-import { addToDoList, deleteToDoList, completedList, sortOnClick } from '../redux'
-import ShowNotification from './ShowNotification';
+import { addToDoList } from '../redux'
 
 
 function DisplayInputContainer() {

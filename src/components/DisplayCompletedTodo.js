@@ -1,7 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import CompletedHeader from './CompletedHeader'
-import {addToDoList, deleteToDoList, completedList, sortOnClick} from '../redux'
 
 
 function DisplayCompletedTodo() {

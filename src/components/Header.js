@@ -1,6 +1,5 @@
 import React from 'react'
 import './todoContainer.css'
-import ToDoContainer from './ToDoContainer'
 import {useSelector} from 'react-redux'
 
 
