@@ -1,7 +1,6 @@
 import React from 'react'
-import './sample.css'
+import './todoContainer.css'
 import ToDoContainer from './ToDoContainer'
-import Sample from './Sample'
 import {useSelector} from 'react-redux'
 
 

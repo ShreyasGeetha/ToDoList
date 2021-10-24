@@ -1,217 +1,385 @@
-/* Om Gurave Namah
-Sri Ganeshaaya Namah */
-
-/*
-.todoList {
-
-  width: 100%;
-  max-width: 1000px;
-  margin: 70px auto;
-  box-shadow: 0 2px 0 rgb(133, 104, 250);
-  border-radius: 6px;
-  overflow: hidden;
+* {
+  box-sizing: border-box;
 }
 
+
+
+.todoList,
 .completed {
-  margin-top: 50px;
-}
+  width: 100%;
+  max-width: 900px;
+  margin: 70px auto;
+  background-color: #8FB399;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 5px;
 
-#complete {
-  color: #FFF;
-  padding: 5px 10px;
-  text-align: center;
-  align-items: center;
-  background-color: #8063FA;
-  border-bottom: solid 2px #D4CAFF;
 }
 
 header {
-  color: #FFF;
-  padding: 5px 10px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  background-color: #8063FA;
-  border-bottom: solid 2px #D4CAFF;
-}
-
-header h1 {
-  flex-grow: 1;
-  font-size: 1.5em;
-  letter-spacing: 2px;
-  font-weight: normal;
-}
-
-.inputData {
+  margin: 5px 1px;
+  background-color: #B3A1A1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex-direction: row;
-  background-color: rgba(87, 51, 231, 0.493);
+  justify-content: center;
+  border-radius: 10px;
+  color: snow;
 }
 
-.inputItems {
+#count,
+h1 {
+  margin-right: auto;
+}
 
-  font-family: Myriad;
+#count {
   padding-top: 10px;
-  color: #FFF;
-  font-size: 1em;
-  
+  padding-left: 10px;
 }
 
-#text {
-  padding-left: 3px;
+/**Input Data Fields CSS*/
+.inputDataFields {
+  width: 100%;
+  max-width: 1000px;
+  padding: 10px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.25rem;
+  flex-basis: 100px;
 }
 
-
-.btnList {
-  width: 100px;
-  border: none;
-  font-family: Myriad;
-  font-size: 1.15em;
-  font-weight: bold;
-  color: rgb(90, 83, 83);
-  background-color: #DCDCDC;
-  display: block;
-  padding: 10px 10px;
-  cursor: pointer;
-  outline: none;
+#taskText,
+#dateText,
+#menuText {
+  padding-right: 10px;
 }
 
-#btnDelete {
-  text-align: center;
-  padding-right: 25px;
-}
-
-#btnDelete:hover {
-  background: rgb(165, 62, 62);
-  color: white;
-}
-
-#btnComplete {
-  text-align: center;
-  padding-right: 25px;
-}
-
-#btnComplete:hover {
-  background: rgb(19, 124, 5);
-  color: white;
-}
-
-
-.btnList:hover {
-  background: rgb(158, 114, 32);
-  color: white;
-}
-
-input[type=date] {
-  background-color: rgb(131, 127, 127);
-  margin-bottom: 5px;
-  border-radius: 5px;
-  padding-bottom: 1px;
-  padding-top: 1px;
-
-}
-
-select {
-  background-color: rgb(161, 159, 159);
-}
-
-.inputItemsDate {
-  padding-top: 10px;
-}
+.textField,
+.dateField,
+.menuField,
+.addButton {}
 
 input[type=text] {
+  margin-bottom: 5px;
+  margin-left: 5px;
+  outline: none;
+  order: 2
+}
+
+input[type=text],
+input[type=date],
+#priority {
   border-width: 0 0 1px 0;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-bottom: 5px;
-  margin-left: 5px;
   border-radius: 5px;
-  background-color: #5B45B9;
+  background-color: #568865;
   border-style: none;
   text-shadow: none;
-  color: #C7BCF8;
-  outline: none;
-  width: 100%;
+  color: snow;
 }
 
-input[type=text]::-webkit-input-placeholder {
-  color: #C7BCF8;
-  letter-spacing: 2px;
-}
+.addbtn {
 
-input[type=text]:focus {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-
-#dateSpanError,
-#textBoxSpanError {
-  color: red;
-}
-
-#dateSpanError {
+  border: none;
+  margin-right: 5px;
   font-family: Myriad;
-  font-size: 1em;
-  margin: 1px auto;
+  outline: none;
+  font-size: 1.15em;
+  font-weight: bold;
+  color: rgb(90, 83, 83);
+  background-color: #568865;
+  padding: 5px;
+  margin-top: -5px;
+  cursor: pointer;
 }
 
-table {
-  display: grid;
-  border-collapse: collapse;
-  min-width: 100%;
-  grid-template-columns:
-    minmax(150px, 190px) minmax(150px, 190px) minmax(150px, 100px) minmax(100px, 100px) minmax(100px, 120px)
+.addbtn:hover {
+  background-color: #03e447;
 }
 
+/*Table Header*/
 
-thead,
-tbody,
-tr {
-  display: contents;
+.tableHeader,
+.compTableHeader {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  justify-content: space-evenly;
 }
 
-th,
-td {
-  padding: 15px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.compTableHeader {}
+
+.compTask {
+  margin-left: 35px;
 }
 
-th {
-  position: sticky;
-  top: 0;
-  background: #6c7ae0;
-  text-align: left;
-  font-weight: normal;
-  font-size: 1.1rem;
+.task {
+  margin-left: 25px;
+}
+
+.completion {
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+.priority {
+  margin-right: 6rem;
+}
+
+#completedTableHeader {
+  margin-right: auto;
+}
+
+/*Table Content*/
+.tableContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.tableBlock>div:nth-child(even) {
+  background-color: #568865;
+}
+
+.Add {
+  color: #00ff4c;
+  font-size: 25px;
+
+}
+
+.Completed {
+  color: rgb(17, 190, 17);
+  font-size: 25px;
+
+}
+
+.Deleted {
   color: white;
+  font-size: 25px;
 }
 
-th:last-child {
-  border: 0;
+.iconDeleted {
+  background-color: rgba(255, 0, 0, 0.698);
+  padding: 20px 10px;
 }
 
-td {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  color: #808080;
+.iconCompleted {
+  background-color: #50ce169f;
+  padding: 20px 10px;
 }
 
-tr:nth-child(even) td {
-  background: #f8f6ff;
+.iconAdd {
+  background-color: #25c054;
+  padding: 20px 10px;
 }
 
-@media (max-width:600px) {
+.warningMessage {
+  color: black;
+}
 
-  .test,
-  .completed,
-  .inputData {
+.deletedMessage {
+  color: black;
+}
+
+.completedMessage {
+  color: black;
+}
+
+.warningMessage,
+.deletedMessage,
+.completedMessage {
+  padding: 20px 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.alertWarning {
+  background: white;
+  border-top: 1px solid #03e447;
+  border-right: 1px solid #03e447;
+  border-bottom: 1px solid #03e447;
+  border-left: 6px solid #03e447;
+}
+
+.alertCompleted {
+  background: white;
+  border-top: 1px solid #50ce16;
+  border-right: 1px solid #50ce16;
+  border-bottom: 1px solid #50ce16;
+  border-left: 6px solid #50ce16;
+
+}
+
+.alertDeleted {
+  background: white;
+  border-left: 6px solid red;
+  border-top: 1px solid red;
+  border-right: 1px solid red;
+  border-bottom: 1px solid red;
+
+}
+
+.alertWarning,
+.alertCompleted,
+.alertDeleted {
+  max-width: 410px;
+  display: flex;
+  position: relative;
+  border-radius: 6px;
+  margin: 70px auto;
+}
+
+/**Add Task Animation*/
+.alertWarning.show {
+  animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+  0% {
+    transform: translateY(-100%);
+  }
+}
+
+.alertWarning.hide {
+  animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide {
+  100% {
+    transform: translateY(-300%);
+  }
+}
+
+/**Compelted Task Animation*/
+.alertCompleted.show {
+  animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+  0% {
+    transform: translateY(-100%);
+  }
+}
+
+.alertCompleted.hide {
+  animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide {
+  100% {
+    transform: translateY(-300%);
+  }
+}
+
+/*Deleted Task Animation*/
+.alertDeleted.show {
+  animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+  0% {
+    transform: translateY(-100%);
+  }
+}
+
+.alertDeleted.hide {
+  animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide {
+  100% {
+    transform: translateY(-300%);
+  }
+}
+
+.warningImage {
+  background-color: #ffa502;
+}
+
+.warningImage,
+.completedImage,
+.deletedImage {
+  position: absolute;
+  top: 70%;
+  padding-right: 20px;
+  transform: translateY(-90%);
+}
+
+
+
+@media (min-width:80px) and (max-width:600px) {
+
+  header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin:auto;
+    justify-content: center;
   }
-}*/
+
+  #count {
+    order: 1;
+  }
+
+  #count,
+  h1 {
+    margin-left: auto;
+  }
+
+  /**Input Data Fields CSS*/
+  .inputDataFields {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+  }
+
+  #text,
+  #date,
+  #priority {
+    grow: 5;
+    width: 75%;
+  }
+
+  .textField,
+  .dateField,
+  .menuField,
+  .addButton {
+    align-content: center;
+  }
+
+  .textField,
+  .dateField,
+  .menuField {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 5px;
+  }
+
+  #taskText,
+  #dateText,
+  #menuText {
+    margin-right: auto;
+  }
+
+  .addbtn {
+    margin-top: 7px;
+  }
+
+  .tableHeader {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 2px 0px;
+    flex-grow: 1;
+    flex-basis: 100px;
+  }
+
+
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import './sample.css'
+import './todoContainer.css'
 import { deleteToDoList, completedList } from '../redux'
 import del from '../images/del.png';
 import tick from '../images/tick.png';

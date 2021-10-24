@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {addToDoList, deleteToDoList, completedList, sortOnClick} from '../redux'
-import './sample.css'
+import './todoContainer.css'
 import DisplayInputContainer from './DisplayInputContainer';
 import DisplayCompletedTodo from './DisplayCompletedTodo';
 import ShowNotification from './ShowNotification';
